@@ -17,8 +17,9 @@ class Account(models.Model):
 class Transaction(models.Model):
     account = models.ForeignKey(Account, on_delete=models.CASCADE)
     tr_date = models.DateTimeField('tr date published ')
+    tr_detail = models.CharField(max_length=200, blank=True)
     tr_amount = models.DecimalField(max_digits=8, decimal_places=2)
-    memo = models.CharField(max_length=1000, blank=True)
+    tr_memo = models.CharField(max_length=1000, blank=True)
 
     def __str__(self):
         return "{account}-{amount}".format(account=self.account, amount=self.tr_amount)
