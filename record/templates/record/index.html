@@ -1,3 +1,22 @@
-<p>
-    hello this is record index page
-</p>
+hello record page
+
+<form action="{% url 'record:indexRecord' %}" method="post">
+    {% csrf_token %}
+
+    <div>
+        account name: <input type="text" name="accountName">
+    </div>
+    <div>
+        date: <input type="date" name="trDate">
+    </div>
+    <div>
+        detatil: <input type="text" name="detail">
+    </div>
+    <div>
+        price: <input type="number" name="price">
+    </div>
+    <div>
+        memo: <input type="text" name="memo">
+    </div>
+    <input type="submit" value="Submit">
+</form>

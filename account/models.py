@@ -4,11 +4,15 @@ from django.conf import settings
 # Create your models here.
 class Account(models.Model):
     user = models.ForeignKey(
-        settings.AUTH_USER_MODEL, 
+        settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE
     )
-    name = models.CharField(max_length=200, unique=True)
+    name = models.CharField(max_length=200)
     pub_date = models.DateTimeField('date published')
+
+    class Meta:
+        unique_together = ["user", "name"]
+
 
     def __str__(self):
         return "{user}-{name}".format(user=self.user, name=self.name)
