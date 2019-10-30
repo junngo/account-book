@@ -2,10 +2,7 @@ from django.urls import include, path
 
 from . import views
 
+app_name = 'main'
 urlpatterns = [
-    path('', views.index, name='index'),
-    path('signup/', views.index, name='index'),
-    path('account/', include('account.urls')),
-    path('record/', include('record.urls')),
-    path('result/', include('result.urls')),
+    path('', views.index_main, name='indexMain'),
 ]
