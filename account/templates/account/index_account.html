@@ -1,0 +1,23 @@
+{% if account_list %}
+    <ul>
+    {% for account in account_list %}
+        <li>{{ account.name }}</li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No polls are available.</p>
+{% endif %}
+
+Insert Account Data
+
+<form action="{% url 'account:indexAcc' %}" method="post">
+    {% csrf_token %}
+
+    <div>
+        account name: <input type="text" name="name">
+    </div>
+    <div>
+        date: <input type="date" name="pub_date">
+    </div>
+    <input type="submit" value="Submit">
+</form>
